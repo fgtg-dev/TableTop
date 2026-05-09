@@ -1,20 +1,33 @@
 import { useState } from 'react';
-import './App.css'
-import Board from './components/board/board.tsx'
-import BoardForm from './forms/board-form.tsx'
+import Box from '@mui/material/Box';
 
-function App() {
-  const initialState = '0,0 north';
-  const [boardData, setBoardData] = useState(initialState);
+import Board from './components/board/board.component.tsx';
+import BoardForm from './forms/board/board.form.tsx';
 
+export default function App() {
+const initialState = '0,0 north';
+const [boardData, setBoardData] = useState(initialState);
   return (
-    <>
-      <BoardForm 
-          onChange={setBoardData}
+    <Box
+      sx={{
+        p: 2,
+        display: 'flex',
+        flexDirection: {
+          xs: 'column',
+          md: 'row',
+        },
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 3,
+        mx: 'auto',
+      }}
+    >
+      <BoardForm
+        onChange={setBoardData}
       />
-      <Board boardData={boardData} />
-    </>
-  )
+      <Board
+        boardData={boardData}
+      />
+    </Box>
+  );
 }
-
-export default App
