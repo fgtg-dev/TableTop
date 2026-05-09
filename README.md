@@ -1,73 +1,153 @@
-# React + TypeScript + Vite
+# Grid Marker Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that visualizes an object placed on a 5x5 grid using coordinate and direction input such as:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+1,1 NORTH
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The object position and orientation are dynamically rendered on the board.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Features
+
+- Render a fixed 5x5 grid
+- Visualize object placement using coordinates
+- Rotate object based on cardinal direction
+- Input validation with error handling
+- Interactive form handling
+- Component-driven development with Storybook
+- Type-safe implementation using TypeScript
+- Responsive UI using Material UI
+
+---
+
+# Tech Stack
+
+## Core
+
+- React
+- TypeScript
+- Vite
+
+## UI & Styling
+
+- Material UI (MUI)
+
+## Form Handling & Validation
+
+- React Hook Form
+- Zod
+- @hookform/resolvers
+
+## Component Development
+
+- Storybook
+
+---
+
+# Coordinate System
+
+- The board is a fixed 5x5 grid
+- Valid coordinates range from `0` to `4`
+- `(0,0)` is located at the South West corner
+
+Example:
+
+```txt
+4,4 EAST
 ```
+
+---
+
+# Accepted Directions
+
+- NORTH
+- EAST
+- SOUTH
+- WEST
+
+The object rotates visually depending on the direction provided.
+
+---
+
+# Validation Rules
+
+The application validates:
+
+- x coordinate must be between `0` and `4`
+- y coordinate must be between `0` and `4`
+- direction must be:
+  - NORTH
+  - EAST
+  - SOUTH
+  - WEST
+
+Invalid inputs are handled gracefully with validation messages.
+
+---
+
+# Getting Started
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## Run Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+## Run Storybook
+
+```bash
+npm run storybook
+```
+
+---
+
+# Example Inputs
+
+| Input         | Description                     |
+| ------------- | ------------------------------- |
+| `0,0 NORTH`   | Bottom-left facing North        |
+| `2,2 EAST`    | Center of the board facing East |
+| `4,4 SOUTH`   | Top-right facing South          |
+| `1,3 WEST`    | Facing West                     |
+
+---
+
+# Project Structure
+
+```txt
+src/
+├── components/
+├── forms/
+├── utilities/
+├── constants/
+├── stories/
+└── App.tsx
+```
+
+---
+
+# Storybook
+
+Storybook is used for isolated component development and testing.
+
+Stories include:
+
+- Different object placements
+- Direction variations
+- Boundary conditions
+- Invalid input states
+
+---
