@@ -10,6 +10,9 @@ The object position and orientation are dynamically rendered on the board.
 
 ---
 
+# Proof of Test
+<img width="853" height="480" alt="POT" src="https://github.com/user-attachments/assets/afa3d1df-2a22-4ca7-8396-ae061a9f1c83" />
+
 # Features
 
 - Render a fixed 5x5 grid
