@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Board from "../components/board/board";
+import Board from "../components/board/board.component";
 
 const meta: Meta<typeof Board> = {
   title: "Components/Board",

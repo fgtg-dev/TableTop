@@ -1,0 +1,1 @@
+export const CARDINAL_DIRECTIONS = ["North", "South", "East", "West"];
